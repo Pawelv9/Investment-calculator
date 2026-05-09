@@ -15,13 +15,13 @@ import { UserInput } from './user-input/user-input';
 export class App {
   protected readonly title = signal('investment-calculator');
 
-  calculateInvestmentResults(data: {
+  onCalculateInvestmentResults(data: {
     initialInvestment: number,
     duration: number,
     expectedReturn: number,
     annualInvestment: number,
   }) {
-    const {initialInvestment, duration, expectedReturn, annualInvestment} = data;
+      const {initialInvestment, duration, expectedReturn, annualInvestment} = data;
     const annualData = [];
     let investmentValue = initialInvestment;
 
@@ -41,6 +41,7 @@ export class App {
       });
     }
 
-    return annualData;
+    // return annualData;
+  console.log(annualData);
   }
 }
