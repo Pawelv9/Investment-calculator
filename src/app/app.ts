@@ -18,14 +18,14 @@ import { InvestmentResults } from './investment-results/investment-results';
 export class App {
   protected readonly title = signal('investment-calculator');
 
-  resultsData?: {
+  resultsData = signal<{
     year: number,
     interest: number,
     valueEndOfYear: number,
     annualInvestment: number,
     totalInterest: number,
     totalAmountInvested: number,
-  }[]
+  }[] | undefined>(undefined)
 
   onCalculateInvestmentResults(data: InvestmentInput) {
       const {initialInvestment, duration, expectedReturn, annualInvestment} = data;
@@ -48,6 +48,6 @@ export class App {
         });
     }
 
-    this.resultsData = annualData;
+    this.resultsData.set(annualData);
   }
 }
